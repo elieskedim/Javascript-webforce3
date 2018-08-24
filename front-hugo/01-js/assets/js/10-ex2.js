@@ -54,6 +54,18 @@ var PremierTrimestre =
                 japonais: 20
             }
         },
+        {
+            nom: "SINVRY",
+            prenom: "Jhordan",
+            moyenne: {
+                francais: 13,
+                math: 8,
+                physique: 0,
+                chinois: 20,
+                histoire: 11,
+                japonais: 9
+            }
+        }
 ];
 var count =0, sommeNotes = 0;
 document.write('<ol>');
