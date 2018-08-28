@@ -5,6 +5,7 @@ $(() => {
     var email = $('#email');
     var tel = $('#tel');
 
+
     function validateEmail(email) {
         var emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
         var valid = emailReg.test(email);
@@ -32,22 +33,31 @@ $(() => {
     $('#contact').on('submit', function (e) {
 
        e.preventDefault();
-
+       $('#errorNom').hide();
+       $('#errorPrenom').hide();
+       $('#errorEmail').hide();
+       $('#errorTel').hide();
+       
+       let valideForm = true;
 
         if (nom.val().length === 0) {
-            alert('Vezuillez entrer un nom');
+                $('#errorNom').show();
+                valideForm = false;
         }
 
         if (prenom.val().length === 0) {
-            alert('Vezuillez entrer un prenom');
+            $('#errorPrenom').show();
+            valideForm = false;
         }
 
         if (!validateEmail(email.val())) {
-            alert('Vezuillez entrer un mail valid');
+            $('#errorEmail').show();
+            valideForm = false;
         }
 
         if (!validateTel(tel.val())) {
-            alert('Vezuillez entrer un tel valid');
+            $('#errorTel').show();
+            valideForm = false;
         }
 
         contacts.push({
@@ -58,9 +68,14 @@ $(() => {
 
         });
         console.log(contacts);
-    });
-
+        console.log(contacts.length);
+        console.log(tel.val());
         
-    
-    
+       
+        
+
+        $('<tr>' +'<td> '+ nom.val() + '</td>' +'<td>' + prenom.val() + '</td>' +'<td>' + email.val() +'</td>' +'<td>' + tel.val() + '</td>' +'</tr>').insertAfter('tbody');
+        $('.aucuncontact').hide();
+        this.reset();
+    });
 });

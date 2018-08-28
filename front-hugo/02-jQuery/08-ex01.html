@@ -38,6 +38,9 @@
         .alert-contact {
             display: none;
         }
+        #errorNom, #errorPrenom, #errorEmail, #errorTel{
+            display:none;
+        }
     </style>
 
     <!-- HTML5 Shiv -->
@@ -89,6 +92,7 @@
                             <label for="nom" class="col-md-4 control-label">Nom</label>
                             <div class="col-md-8">
                                 <input type="text" name="nom" id="nom" class="form-control" placeholder="Nom">
+                                <div id="errorNom">Veuillez entrez un nom valid</div>
                             </div>
                         </div>
 
@@ -97,6 +101,7 @@
                             <label for="prenom" class="col-md-4 control-label">Prénom</label>
                             <div class="col-md-8">
                                 <input type="text" name="prenom" id="prenom" class="form-control" placeholder="Prénom">
+                                <div id="errorPrenom">Veuillez entrez un nom valid</div>
                             </div>
                         </div>
 
@@ -105,6 +110,7 @@
                             <label for="email" class="col-md-4 control-label">Email</label>
                             <div class="col-md-8">
                                 <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                                <div id="errorEmail">Veuillez entrez un nom valid</div>
                             </div>
                         </div>
 
@@ -113,6 +119,7 @@
                             <label for="tel" class="col-md-4 control-label">Tel</label>
                             <div class="col-md-8">
                                 <input type="tel" name="tel" id="tel" class="form-control" placeholder="Téléphone">
+                                <div id="errorTel">Veuillez entrez un nom valid</div>
                             </div>
                         </div>
 
