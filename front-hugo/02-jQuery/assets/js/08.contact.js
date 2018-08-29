@@ -60,13 +60,49 @@ $(() => {
             valideForm = false;
         }
 
-        contacts.push({
-            nom: nom.val(),
-            prenom: prenom.val(),
-            email: email.val(),
-            tel: tel.val()
+        var contactPresent = false;
+        
+       if(valideForm){
+            if(contacts.length == 0){ 
+                alert('je suis dans le premier push');
+                contacts.push({
+                    nom: nom.val(),
+                    prenom: prenom.val(),
+                    email: email.val(),
+                    tel: tel.val()
+                });
+                $('<tr>' + '<td> ' + nom.val() + '</td>' + '<td>' + prenom.val() + '</td>' + '<td>' + email.val() + '</td>' + '<td>' + tel.val() + '</td>' + '</tr>').insertAfter('tbody');
+                $('.aucuncontact').hide();
+            
+            } else {
+                
+                for (var i = 0; i < contacts.length; i++) {
+                    if (email.val() === contacts[i].email) {
+                        alert('Contact déjà present');
+                        contactPresent = false;
+                        break;
+                    } else {
+                        /* alert('je suis dans le second push'); */
+                        contactPresent = true;
+                        
+                    }
+                }
 
-        });
+        }
+        if(contactPresent){
+            contacts.push({
+                nom: nom.val(),
+                prenom: prenom.val(),
+                email: email.val(),
+                tel: tel.val()
+
+            });
+            $('<tr>' + '<td> ' + nom.val() + '</td>' + '<td>' + prenom.val() + '</td>' + '<td>' + email.val() + '</td>' + '<td>' + tel.val() + '</td>' + '</tr>').insertAfter('tbody');
+            $('.aucuncontact').hide();
+        }
+    }else{
+            alert('Il y a une merde quelque part');
+        } 
         console.log(contacts);
         console.log(contacts.length);
         console.log(tel.val());
@@ -74,8 +110,7 @@ $(() => {
        
         
 
-        $('<tr>' +'<td> '+ nom.val() + '</td>' +'<td>' + prenom.val() + '</td>' +'<td>' + email.val() +'</td>' +'<td>' + tel.val() + '</td>' +'</tr>').insertAfter('tbody');
-        $('.aucuncontact').hide();
+        
         this.reset();
     });
 });

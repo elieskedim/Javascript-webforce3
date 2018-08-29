@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<!-- SHAREMYCODE.FR/MILA -->
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>09-Exercice 4 en jQuery !</title>
+
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+        <script>
+            function foo(data) {
+                document.write("<p>Ville: ", data.city + "</p>");
+                document.write("<p>Pay: ", data.country.name + "</p>");
+                 document.write("<p>Ip: ", data.ip + "</p>");
+            }
+
+            $.getJSON('https://ipapi.co/json/', function (data) {
+                console.log(data.city)
+                console.log(data.region)
+                console.log(data.postal)
+                console.log(data.ip)
+                })
+
+
+        </script>
+        <script src="http://geoip.nekudo.com/api?callback=foo"></script>
+    <script src="assets/js/09.js"></script>
+
+</body>
+
+</html>
