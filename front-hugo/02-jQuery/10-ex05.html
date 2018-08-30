@@ -134,7 +134,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.0/jquery.mark.min.js" integrity="sha256-1iYR6/Bs+CrdUVeCpCmb4JcYVWvvCUEgpSU7HS5xhsY=" crossorigin="anonymous"></script>
 
 ​   <script>
-         $.getJSON('https://jsonplaceholder.typicode.com/posts', function (data) {
+         /* $.getJSON('https://jsonplaceholder.typicode.com/posts', function (data) {
 
                 for(var i = 0; i < 10; i++){
                     $(`
@@ -162,7 +162,54 @@
                     let keyword = $(this).val();
                     $('section').unmark().mark(keyword);
 
-                });
+                }); */
+
+                /* Correction */
+
+                $(function() {
+
+                    $.ajax('https://jsonplaceholder.typicode.com/posts').done(function (articles){
+
+                        // - 2 Je parcours le tableaux et j'affiche les articles
+                        $.each(articles, function (index, article) {
+                             $(`
+                                <section>
+
+                                    <header>
+
+                                    <h1>${article.title}</h1>
+
+                                    </header>
+
+                                        <article>
+
+                                        ${article.body}
+
+                                    </article>
+
+                                    </section>
+                            `).appendTo('main');
+
+                            //récuperer uniquement 10 articles
+                            if(index == 9 ){
+                                return false;
+                            }//fin if index
+
+                        });//fin du each
+
+                    });//fin du ajax done
+
+                    // 4 - Bonus marJS
+                    
+                    $('#markJS').on('input', function () {
+                        const keyword = $(this).val();
+                        
+                        $("section").unmark().mark(keyword);
+
+                    });// fin du listener input 
+
+
+                });//fin du ready js
     </script>
 
 </body>
