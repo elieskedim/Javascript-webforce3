@@ -138,7 +138,7 @@
 
             !validateEmail(email.val()) ? email.addClass('is-invalid') : nom.addClass('is-valid');
 
-            !validateTel(tel.val) ? tel.addClass('is-invalid') : addClass('is-valid');
+            !validateTel(tel.val()) ? tel.addClass('is-invalid') : addClass('is-valid');
             
             $(this).find('is-invalid').length === 0 ? $(this).replaceWith(`
                 <div class="alert alert-success">
