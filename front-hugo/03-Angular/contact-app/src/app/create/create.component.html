@@ -1,0 +1,30 @@
+<form #form="ngForm" (ngSubmit)="exportContact(); form.reset();">
+  <!--
+    Grace à la variable form je peux connaitre l'état de validation du formulaire.
+  -->
+  <h5 class="text-center m-4">Ajoutez un contact</h5>
+
+  <!--<pre>{{nouveauContact | json}} {{name.valid}}</pre>-->
+
+  <div class="form-group">
+    <input type="'text" name="name" #name="ngModel"  [(ngModel)]="nouveauContact.name" required placeholder="Saisissez votre nom complet" class="form-control" [class.is-invalid]="name.touched && name.invalid" [class.is-valid]="name.valid">
+    <div class="invalid-feedback">
+      Vous devez saisir votre nom compet
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="'text" name="username" #username="ngModel" [(ngModel)]="nouveauContact.username" required placeholder="Saisissez votre Pseudo" class="form-control" [class.is-invalid]="username.touched && username.invalid" [class.is-valid]="username.valid">
+    <div class="invalid-feedback">
+      Vous devez saisir votre Pseudo.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="'email" name="email" #email="ngModel" [(ngModel)]="nouveauContact.email" required placeholder="Saisissez votre email" class="form-control" [class.is-invalid]="email.touched && email.invalid" [class.is-valid]="email.valid">
+    <div class="invalid-feedback">
+      Vous devez saisir votre Email.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid" class="btn btn-block btn-success">Crée le contact</button>
+</form>

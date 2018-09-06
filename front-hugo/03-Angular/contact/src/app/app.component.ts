@@ -3,27 +3,20 @@
  *  "Component" via @angular/core.
  */
 import { Component } from '@angular/core';
+import {Contact} from './shared/models/contact';
 /**
 * @Component est ce qu'on appel un décorateur.
 * Il va nous permettre de définir 3 paramètres
 * essentiels à notre application...
 */
-class Contact {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  adress?: object;
-  phone?: number;
-  website?: string;
-  company?: object;
-}
+
 @Component({
   /**
    * Le sélector détermine la manière dont le composant sera affiché
    * dans notre HTML : <app-root></app-root>;
    * Vous devez OBLIGATORY avoir la balise d'ouverture et de fermeture
    */
+  
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
